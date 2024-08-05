@@ -1,0 +1,236 @@
+{% extends "layout.html" %} {% block body %}
+<div class="content">
+  <h1>About the Sound Emotion Detector</h1>
+  <p>
+    Welcome to the Sound Emotion Detector project! This tool leverages advanced
+    machine learning techniques to identify emotions from audio samples. Below,
+    you can find detailed information about how the project works, its features,
+    and its technical aspects.
+  </p>
+
+  <section>
+    <h2>How It Works</h2>
+    <div class="image-container">
+      <img
+        src="{{ url_for('static', filename='images/how_it_works.png') }}"
+        alt="How It Works"
+        class="responsive-image"
+      />
+    </div>
+    <p>
+      The Sound Emotion Detector processes audio files to identify emotions
+      using a machine learning model. The process involves several key steps:
+    </p>
+    <ol>
+      <li>
+        <strong> What is Speech Emotion Recognition?</strong>Speech Emotion
+        Recognition, abbreviated as SER, is the act of attempting to recognize
+        human emotion and affective states from speech. This is capitalizing on
+        the fact that voice often reflects underlying emotion through tone and
+        pitch. This is also the phenomenon that animals like dogs and horses
+        employ to be able to understand human emotion.<br />
+        SER is tough because emotions are subjective and annotating audio is
+        challenging.
+      </li>
+      <li>
+        <strong> What is librosa?</strong> librosa is a
+        <a
+          class="set"
+          href="https://data-flair.training/blogs/python-libraries/"
+          target="_blank"
+          >Python library for</a
+        >
+        analyzing audio and music. It has a flatter package layout, standardizes
+        interfaces and names, backwards compatibility, modular functions, and
+        readable code. Further, in this Python mini-project, we demonstrate how
+        to install it (and a few other packages) with pip.
+      </li>
+      <li>
+        <strong> Speech Emotion Recognition – Objective</strong> To build a
+        model to recognize emotion from speech using the librosa and sklearn
+        libraries and the RAVDESS dataset.
+      </li>
+      <li>
+        <strong> The Dataset</strong>For this Python mini project, we’ll use the
+        RAVDESS dataset; this is the Ryerson Audio-Visual Database of Emotional
+        Speech and Song dataset, and is free to download. This dataset has 7356
+        files rated by 247 individuals 10 times on emotional validity,
+        intensity, and genuineness. The entire dataset is 24.8GB from 24 actors,
+        but we’ve lowered the sample rate on all the files, and you can
+        <a
+          href="https://drive.google.com/file/d/1wWsrN2Ep7x6lWqOXfr4rpKGYrJhWc8z7/view"
+          target="_blank"
+          >download it here.</a
+        >
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Usage</h2>
+    <div class="feature">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image1.png') }}"
+          alt="Feature 1"
+          class="responsive-image"
+        />
+      </div>
+      <h3>Prerequisites:</h3>
+      <p>You’ll need to install the following libraries with pip:</p>
+    </div>
+
+    <div class="feature">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image2.png') }}"
+          alt="Feature 2"
+          class="responsive-image"
+        />
+      </div>
+      <h3>Steps for speech emotion recognition python projects:</h3>
+      <p>1. Make the necessary imports:</p>
+    </div>
+
+    <div class="feature">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image3.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        2. Define a function extract_feature to extract the mfcc, chroma, and
+        mel features from a sound file. This function takes 4 parameters- the
+        file name and three Boolean parameters for the three features: mfcc: Mel
+        Frequency Cepstral Coefficient, represents the short-term power spectrum
+        of a sound chroma: Pertains to the 12 different pitch classes mel: Mel
+        Spectrogram Frequency.Open the sound file with soundfile.SoundFile using
+        with-as so it’s automatically closed once we’re done. Read from it and
+        call it X. Also, get the sample rate. If chroma is True, get the
+        Short-Time Fourier Transform of X. Let result be an empty numpy array.
+        Now, for each feature of the three, if it exists, make a call to the
+        corresponding function from librosa.feature (eg- librosa.feature.mfcc
+        for mfcc), and get the mean value. Call the function hstack() from numpy
+        with result and the feature value, and store this in result. hstack()
+        stacks arrays in sequence horizontally (in a columnar fashion). Then,
+        return the result.
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image4.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        3. Now, let’s define a
+        <a
+          class="set"
+          href="https://data-flair.training/blogs/python-dictionary/"
+          target="_blank"
+          >dictionary</a
+        >
+        to hold numbers and the emotions available in the RAVDESS dataset, and a
+        list to hold those we want- calm, happy, fearful, disgust.
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image5.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        4. Now, let’s load the data with a function load_data() – this takes in
+        the relative size of the test set as parameter. x and y are empty lists;
+        we’ll use the glob() function from the glob module to get all the
+        pathnames for the sound files in our dataset. The pattern we use for
+        this is: “D:\\DataFlair\\ravdess data\\Actor_*\\*.wav”. This is because
+        our dataset looks like this:
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image6.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image7.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        5. Time to split the dataset into training and testing sets! Let’s keep
+        the test set 25% of everything and use the load_data function for this.
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image8.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        6. Now, let’s initialize an MLPClassifier. This is a Multi-layer
+        Perceptron Classifier; it optimizes the log-loss function using LBFGS or
+        stochastic gradient descent. Unlike SVM or Naive Bayes, the
+        MLPClassifier has an internal neural network for the purpose of
+        classification. This is a feedforward ANN model.
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image9.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>7. Fit/train the model.</p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image10.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        8. Let’s predict the values for the test set. This gives us y_pred (the
+        predicted emotions for the features in the test set).
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image11.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+      <p>
+        9. To calculate the accuracy of our model, we’ll call up the
+        accuracy_score() function we imported from sklearn. Finally, we’ll round
+        the accuracy to 2 decimal places and print it out.
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/image12.png') }}"
+          alt="Feature 3"
+          class="responsive-image"
+        />
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Summary</h2>
+    <p>
+      In this Python mini project, we learned to recognize emotions from speech.
+      We used an MLPClassifier for this and made use of the soundfile library to
+      read the sound file, and the librosa library to extract features from it.
+      As you’ll see, the model delivered an accuracy of 72.4%. That’s good
+      enough for us yet.
+    </p>
+  </section>
+</div>
+{% endblock %}

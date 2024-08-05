@@ -1,0 +1,10 @@
+{
+    "params":{
+        "url_linkedin":"https://www.linkedin.com/in/inshal-amir-2619bb282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "url_git":"https://github.com/Inshal100",
+        "url_insta":"https://www.instagram.com/i.g__inshal?igsh=MXBnam1udXlsdm9hbQ%3D%3D&utm_source=qr",
+        "database_uri": "mysql://root:@localhost/contact"
+    }   
+    
+
+}

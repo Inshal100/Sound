@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block body %}
+<div class="container">
+  <div class="content">
+    <h1>Sound Emotion Detector</h1>
+    <p>Upload an audio file to detect the emotion.</p>
+    <form
+      id="inputForm"
+      action="/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <!-- Audio File Upload -->
+      <div class="input-group">
+        <label for="audio">Upload Audio for Emotion Detection:</label>
+        <input
+          type="file"
+          id="audio"
+          name="audio"
+          accept="audio/*"
+          aria-required="true"
+        />
+      </div>
+      <div class="button gradient-border">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block body %}
+<div class="output-content">
+  <h1>Emotion Detection Result</h1>
+  <div id="result">
+    <img
+      id="emotionImage"
+      src="{{ emotion_image }}"
+      alt="Emotion Image"
+      width="400"
+      height="300"
+    />
+    <p id="emotionText" style="font-size: 34px">{{ emotion }}</p>
+  </div>
+  <a href="/" class="button gradient-border" style="text-decoration: none"
+    >Try Again</a
+  >
+</div>
+{% endblock %}

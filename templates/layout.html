@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound Emotion Detector - Output</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+      <div id="preloader"></div>
+      <nav class="header-top">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" class="contact">Contact</a></li>
+          <li style="float: right; margin-right: 30px">
+            <div class="typing">
+              <label class="aspire">Aspiring AI Developer</label>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header">
+        <h1>Zenshin AI</h1>
+        <p>Explore the power of AI</p>
+      </div>
+      
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <!-- Footer-->
+    <footer class="border-top">
+      <div class="icon-container">
+        <!-- Inline list of icons -->
+        <a
+          href="{{params['url_linkedin']}}"
+          target="_blank"
+          class="list-inline-item"
+        >
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+        <a
+          href="{{params['url_insta']}}"
+          target="_blank"
+          class="list-inline-item"
+        >
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+        <a
+          href="{{params['url_git']}}"
+          target="_blank"
+          class="list-inline-item"
+        >
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+
+        <div>2024 Sound Emotion Detector &copy; All rights reserved</div>
+      </div>
+    </footer>
+    <script>
+      var loader = document.getElementById('preloader');
+window.addEventListener('load', function() {
+    loader.style.display = 'none';
+});
+    </script>
+  </body>
+</html>
